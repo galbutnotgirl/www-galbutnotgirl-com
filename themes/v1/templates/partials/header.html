@@ -1,0 +1,9 @@
+{# If you have a "Content Type" for header in Built.io Contentstack then use get() view helper to retrieve header entry. #}
+{# e.g. set header = get("header_content_type_id") #}
+{# And then render header values using the {{header.field_name}} #}
+
+{% set header = get("menu") %}
+
+{%for n in header.menu_item%}
+	<a href="{{n.href}}">{{n.title}}</a><br />
+{% endfor %}

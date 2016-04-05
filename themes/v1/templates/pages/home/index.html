@@ -1,0 +1,17 @@
+{% extends "layouts/landing.html" %}
+
+{% block content %}
+
+
+
+<div class="main-wrapper">
+			<div class="navigation">
+				<ul>
+					{% set header = get("menu") %}
+					{%for n in header.menu_item%}
+					<li><a href="">{{n.title}}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+{% endblock %}
