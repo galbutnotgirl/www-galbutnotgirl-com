@@ -3,14 +3,25 @@
 {% block content %}
 
 <div class="main-wrapper">
-			<div class="navigation">
-				<ul>
-					{% set header = get("menu") %}
-					{%for n in header.menu_item%}
-					<li><a href="">{{n.title}}</a></li>
-					{% endfor %}
-				</ul>
-			</div>
-		</div>
+	<div class="page-title">
+		<h1>{{entry.title}}</h1>
+	</div>
+	<div class="navigation">
+		<ul>
+			{% set header = get("menu") %}
+			{%for n in header.menu_item%}
+			<li><a href="{{n.href}}">{{n.title}}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="social-icons">
+		<ul>
+			{% set social_buttons = get("social") %}
+			{%for n in social_buttons.social_links%}
+			<li><a target="_blank" href="{{n.link.href}}" title="{{n.link.title}}"><span style="background-image: url('{{n.image._internal_url}}');}"></span></a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
 {% endblock %}
 
