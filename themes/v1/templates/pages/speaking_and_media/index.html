@@ -1,0 +1,51 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+<section>
+    <h1>{{entry.title}}</h1>
+    
+			<ul>
+			<li><b>Title:</b> {{entry.title}}</li>
+			<li><b>URL:</b> {{entry.url}}</li>
+			<li><b>Speaking:</b>
+				{% set entry_speaking = entry.speaking %}
+				<ul>
+				{% for _entry_speaking in entry_speaking -%}
+					<li><b>Speaking</b>:<br>
+						<ul>
+						<li><b>Title:</b> {{_entry_speaking.title}}</li>
+						<li><b>Date:</b> {{_entry_speaking.date}}</li>
+						<li><b>Location:</b> {{_entry_speaking.location}}</li>
+						<li><b>Link:</b> <a href='{{_entry_speaking.link.href}}'>{{_entry_speaking.link.title}}</a></li>
+						<li><b>Summary:</b> {{_entry_speaking.summary}}</li>
+						</ul>
+					</li>
+				{%- endfor %}
+				</ul>
+			</li>
+			<li><b>Media:</b>
+				{% set entry_media = entry.media %}
+				<ul>
+				{% for _entry_media in entry_media -%}
+					<li><b>Media</b>:<br>
+						<ul>
+						<li><b>Title:</b> {{_entry_media.title}}</li>
+						<li><b>Date:</b> {{_entry_media.date}}</li>
+						<li><b>Location:</b> {{_entry_media.location}}</li>
+						<li><b>Link:</b> <a href='{{_entry_media.link.href}}'>{{_entry_media.link.title}}</a></li>
+						<li><b>Summary:</b> {{_entry_media.summary}}</li>
+						</ul>
+					</li>
+				{%- endfor %}
+				</ul>
+			</li>
+			<li><b>SEO</b>:<br>
+				<ul>
+				<li><b>Description:</b> {{entry.seo.description}}</li>
+				<li><b>Keywords:</b> {{entry.seo.keywords}}</li>
+				</ul>
+			</li>
+			</ul>
+    <p style="color: #555; font-size: 14px">Note: Template automatically generated at "/Users/Gal/www-galbutnotgirl-com/themes/v1/templates/pages/speaking_and_media/index.html"</p>
+</section>
+{% endblock %}
